@@ -1,0 +1,88 @@
+---
+const experiences = [
+  {
+    company: "Embajada de Brasil en La Paz",
+    role: "Soporte Técnico / Desarrollador Web Junior (Frontend)",
+    period: "2 años",
+    tags: ["Soporte TI", "Frontend Junior", "React", "Infraestructura"],
+    description: "Soporte técnico de infraestructura IT, gestión de servidores y redes en entorno diplomático. Además, desarrollo web junior en frontend, construyendo interfaces con React, Tailwind CSS y otras librerias.",
+    highlight: true
+  },
+  {
+    company: "Casa Grande del Pueblo",
+    role: "Técnico en Redes",
+    period: "Proyecto",
+    description: "Implementación de cableado estructurado y configuración de infraestructura de red en el edificio gubernamental más importante de Bolivia.",
+    tags: ["Redes", "Cableado Estructurado", "Infraestructura"],
+    highlight: false
+  },
+  {
+    company: "Planta de Energía Solar de Uyuni",
+    role: "Técnico en Redes",
+    period: "Proyecto",
+    description: "Diseño e implementación de infraestructura de red para sistemas de monitoreo y control de la planta solar.",
+    tags: ["Redes", "Monitoreo", "Sistemas Embebidos"],
+    highlight: false
+  },
+  {
+    company: "Tribunal Departamental de La Paz",
+    role: "Soporte Técnico",
+    period: "Elecciones Nacionales",
+    description: "Soporte técnico y mantenimiento de sistemas informáticos durante las Elecciones Nacionales, garantizando la disponibilidad de los sistemas judiciales críticos.",
+    tags: ["Soporte TI", "Windows Server", "Elecciones"],
+    highlight: false
+  },
+  {
+    company: "Órgano Nacional Electoral",
+    role: "Digitalizador",
+    period: "Elecciones Nacionales",
+    description: "Procesamiento y gestión de datos críticos durante las Elecciones Nacionales, asegurando la integridad y oportunidad de la información electoral.",
+    tags: ["Procesamiento de Datos", "Integridad", "Elecciones"],
+    highlight: false
+  }
+];
+---
+
+<section id="experience" class="py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+      <span class="neon-text">Experiencia Profesional</span>
+    </h2>
+
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-neon-blue via-neon-purple to-transparent"></div>
+
+      <div class="space-y-12">
+        {experiences.map((exp, index) => (
+          <div class={`relative flex flex-col md:flex-row ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+            <!-- Timeline dot -->
+            <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-neon-blue transform -translate-x-1/2 z-10 neon-glow"></div>
+
+            <!-- Content -->
+            <div class={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+              <div class={`bg-bg-card rounded-xl p-6 neon-border ${exp.highlight ? 'neon-glow' : ''} hover:scale-[1.02] transition-transform duration-300`}>
+                {exp.highlight && (
+                  <span class="inline-block px-2 py-1 bg-neon-blue/20 text-neon-blue text-xs font-mono rounded mb-3">
+                    ⭐ Destacado
+                  </span>
+                )}
+                <h3 class="text-xl font-bold text-text-primary mb-1">{exp.company}</h3>
+                <p class="text-neon-purple font-medium mb-2">{exp.role}</p>
+                <p class="text-text-secondary text-sm mb-3">{exp.period}</p>
+                <p class="text-text-secondary text-sm leading-relaxed mb-4">{exp.description}</p>
+                <div class="flex flex-wrap gap-2">
+                  {exp.tags.map((tag) => (
+                    <span class="px-2 py-1 bg-bg-secondary rounded text-text-secondary text-xs font-mono">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

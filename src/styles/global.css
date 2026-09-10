@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #f5f5f7;
+  --color-bg-secondary: #e8e8ec;
+  --color-bg-card: #ffffff;
+  --color-neon-blue: #0087b8;
+  --color-neon-purple: #8b11ac;
+  --color-neon-green: #1a9e08;
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #52525b;
+  --font-family-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+html.dark {
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #12121a;
+  --color-bg-card: #1a1a2e;
+  --color-neon-blue: #00d4ff;
+  --color-neon-purple: #b829dd;
+  --color-neon-green: #39ff14;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #94a3b8;
+}
+
+html.dark {
+  --glass-bg: rgba(18, 18, 26, 0.85);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background-color: var(--color-neon-blue);
+  color: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neon-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-purple);
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.neon-text {
+  background: linear-gradient(90deg, var(--color-neon-blue), var(--color-neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px rgba(0, 135, 184, 0.25),
+              0 0 40px rgba(0, 135, 184, 0.1);
+}
+
+.neon-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5),
+              0 0 60px rgba(0, 212, 255, 0.2);
+}
+
+html.dark .neon-glow {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3),
+              0 0 40px rgba(0, 212, 255, 0.1);
+}
+
+html.dark .neon-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5),
+              0 0 60px rgba(0, 212, 255, 0.2);
+}
+
+html.dark .neon-border {
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+html.dark .neon-border:hover {
+  border-color: rgba(0, 212, 255, 0.6);
+}
+
+.neon-border {
+  border: 1px solid rgba(0, 135, 184, 0.25);
+  transition: all 0.3s ease;
+}
+
+.neon-border:hover {
+  border-color: rgba(0, 135, 184, 0.6);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+html.dark .glass {
+  background: var(--glass-bg);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 135, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 135, 184, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+html.dark .grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+}

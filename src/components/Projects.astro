@@ -1,0 +1,112 @@
+---
+const projects = [
+  {
+    title: "Sistema de Gestión de Redes",
+    description: "Proyecto de grado - Aplicación web para monitoreo y gestión de infraestructura de red con panel de administración en tiempo real.",
+    image: "/images/projects/proyecto-grado.jpg",
+    tags: ["React", "Node.js", "PostgreSQL", "Socket.io"],
+    github: "#",
+    demo: "#",
+    featured: true
+  },
+  {
+    title: "Portal de Soporte Técnico",
+    description: "Sistema de tickets para gestión de incidencias técnicas, desarrollado para optimizar los procesos de soporte.",
+    image: "/images/projects/proyecto-personal.jpg",
+    tags: ["React", "Tailwind", "Express", "MongoDB"],
+    github: "#",
+    demo: "#",
+    featured: false
+  },
+  {
+    title: "Dashboard de Monitoreo de Red",
+    description: "Panel de control para visualización de métricas de red, alertas y estado de dispositivos conectados.",
+    image: "/images/projects/dashboard-red.jpg",
+    tags: ["JavaScript", "Chart.js", "REST API"],
+    github: "#",
+    demo: "#",
+    featured: false
+  }
+];
+---
+
+<section id="projects" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+      <span class="neon-text">Proyectos Destacados</span>
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <div class={`group bg-bg-card rounded-xl overflow-hidden neon-border hover:scale-[1.02] transition-all duration-300 ${project.featured ? 'md:col-span-2 lg:col-span-1 ring-2 ring-neon-blue/30' : ''}`}>
+          <!-- Image placeholder -->
+          <div class="aspect-video bg-gradient-to-br from-bg-secondary to-bg-primary relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <div class="w-16 h-16 mx-auto mb-2 rounded-lg bg-neon-blue/20 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-neon-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <p class="text-text-secondary text-sm">{project.title}</p>
+              </div>
+            </div>
+
+            {project.featured && (
+              <div class="absolute top-4 right-4">
+                <span class="px-2 py-1 bg-neon-blue text-white text-xs font-bold rounded">Featured</span>
+              </div>
+            )}
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-text-primary mb-2 group-hover:text-neon-blue transition-colors">
+              {project.title}
+            </h3>
+
+            <p class="text-text-secondary text-sm leading-relaxed mb-4">
+              {project.description}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+              {project.tags.map((tag) => (
+                <span class="px-2 py-1 bg-bg-secondary rounded text-neon-blue text-xs font-mono">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div class="flex gap-3">
+              <a
+                href={project.github}
+                class="flex-1 px-4 py-2 border border-neon-blue/30 rounded-lg text-neon-blue text-sm font-medium text-center hover:bg-neon-blue/10 transition-all duration-300"
+              >
+                Código
+              </a>
+              <a
+                href={project.demo}
+                class="flex-1 px-4 py-2 bg-gradient-to-r from-neon-blue to-neon-purple rounded-lg text-white text-sm font-medium text-center hover:opacity-90 transition-all duration-300"
+              >
+                Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        href="https://github.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 border border-neon-purple/50 rounded-lg text-neon-purple font-semibold hover:bg-neon-purple/10 transition-all duration-300"
+      >
+        <span>Ver más en GitHub</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
